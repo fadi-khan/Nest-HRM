@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const apiUrl = "http://localhost:8000/employee";
+export const leavesApiUrl = "http://localhost:8000/leaves";
 
 
 export const API = axios.create({
@@ -48,6 +49,7 @@ export const saveCustomer =async (customer)=>{
 
     }
 }
+
 export const updateCustomer =async (customer,id)=>{
     try {
         return (
@@ -66,5 +68,13 @@ export const deleteCustomer =async (id)=>{
         return response.data;
 
 
+
+}
+
+// leaves
+
+export  const getAllLeaves = async ()=>{
+
+    return  await axios.get(leavesApiUrl)
 
 }

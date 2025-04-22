@@ -11,7 +11,7 @@ export function About() {
 
     const navigate = useNavigate();
     return(
-        <div className={"dark:text-white"}>
+        <div className={"dark:text-white "}>
             <div className={"flex-1  "} onClick={() => {
                 navigate("/")
             }}> {

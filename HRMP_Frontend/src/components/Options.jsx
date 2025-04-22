@@ -37,7 +37,7 @@ const Options = ({customer,setCurrentCustomer ,setUpdateFormBar ,setShowDeleteDi
 
             {/* Dropdown Menu */}
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-32  border bg-[#000900] shadow-lg rounded-lg">
+                <div className=" absolute right-0 mt-2 w-32  border bg-[#000900] shadow-lg rounded-lg">
                     <button
                         className="block w-full text-left px-4 py-2 hover:bg-green-600 rounded-t-lg "
                         onClick={() =>

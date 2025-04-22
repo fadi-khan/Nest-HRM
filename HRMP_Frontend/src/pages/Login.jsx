@@ -43,7 +43,7 @@ export const Login = () => {
 
             <div className={"h-full hidden md:flex  bg-blue-950  px-4 md:w-1/2 lg:w-[40%]  justify-center items-center"}>
 
-              <ul className={'text-white  text-5xl space-y-6 font-bold tracking-wide   '}>
+              <ul className={'text-white  h text-5xl space-y-6 font-bold tracking-wide   '}>
                   <li>HUMAN</li>
                   <li>RESOURCE</li>
                   <li>MANAGEMENT</li>
@@ -51,7 +51,7 @@ export const Login = () => {
 
             </div>
 
-            <div className={"  justify-center flex flex-col  p-4 md:none mx-auto"}>
+            <div className={"  justify-center   flex flex-col  p-4 md:none mx-auto"}>
 
 
 
