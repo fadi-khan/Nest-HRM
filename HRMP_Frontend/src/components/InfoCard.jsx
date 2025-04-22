@@ -1,4 +1,4 @@
-import {Heading} from "./Heading.jsx";
+
 
 export const InfoCard = ({heading,data ,style })=>{
 
