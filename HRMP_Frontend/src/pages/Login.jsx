@@ -37,7 +37,7 @@ export const Login = () => {
     };
 
     return (
-        <div className={'flex h-screen  flex-row w-full '} >
+        <div className={'flex h-screen  flex-row w-full mx-auto'} >
 
 
 
@@ -51,7 +51,7 @@ export const Login = () => {
 
             </div>
 
-            <div className={"  justify-center flex flex-col ml-20 p-4"}>
+            <div className={"  justify-center flex flex-col  p-4 md:none mx-auto"}>
 
 
 

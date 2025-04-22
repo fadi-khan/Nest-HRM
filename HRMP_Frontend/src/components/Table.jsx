@@ -7,7 +7,6 @@ export function Table({me, updateCustomers,  users, setUsers }) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [showDialogue, setShowDialogue] = useState(false);
-    const [updateForm, setUpdateForm] = useState(false);
     const [currentUser, setCurrentUser] = useState(null);
 
     const navigate = useNavigate();

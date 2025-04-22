@@ -29,16 +29,11 @@ export const ConfirmationMessage = ({id , updateCustomerList ,showDeleteDialogue
 
     return (
 
-
-
         <>
             <Notification message={"deleted successfully."} show={showNotification} />
 
 
         {
-
-
-
 
             showDeleteDialogue && <div
             className={"fixed h-32   rounded-lg left-1/4 md:left-1/2 top-1/2  bottom-1/2 w-72 bg-gray-900 drop-shadow  shadow-lg   gap-y-4  text-white  z-50 "}>
