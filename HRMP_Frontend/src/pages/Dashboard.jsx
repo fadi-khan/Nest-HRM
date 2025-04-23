@@ -6,7 +6,6 @@ import {API, getAllLeaves, getCustomers} from "../services/client.jsx";
 import {Table} from "../components/Table.jsx";
 import LoadingSpinner from "../components/LoadingSpinner.jsx";
 import {InfoCard} from "../components/InfoCard.jsx";
-import {Menu} from "../components/Menu.jsx";
 
 
 export  const Dashboard = ()=>{

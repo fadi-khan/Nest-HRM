@@ -44,7 +44,7 @@ export function Table({me, updateCustomers,  users, setUsers }) {
                             <td className="px-6 py-2 max-w-[200px] truncate">{user.address}</td>
                             <td
                                 onClick={() => {
-                                    navigate('/update',{state: { id:user.id, user:me}})
+                                    navigate('/update',{state: { currentUser:user, user:me}})
                                 }}
                                 className="font-bold px-6 py-2 text-center cursor-pointer text-blue-600 hover:underline"
                             >

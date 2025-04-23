@@ -1,7 +1,7 @@
 
 
 
-export const CustomField = ({  name ,type ,errorMsg, inputLabel,  placeholder ,register ,style="", isLoginScreen=false })=> {
+export const CustomField = ({value , name ,type ,errorMsg, inputLabel,  placeholder ,register ,style="", isLoginScreen=false })=> {
   if (isLoginScreen){
       return (
           <div className={` flex  flex-col  gap-y-1 w-full `}>
@@ -10,9 +10,11 @@ export const CustomField = ({  name ,type ,errorMsg, inputLabel,  placeholder ,r
                   <input
                       {...register(name)}
                       type={type}
-                      className={" rounded-xl border border-blue-950  py-2 px-4 focus:outline-none  "}
+                      className={" rounded-xl border min-w-[215px] w-full border-blue-950  py-2 px-4 focus:outline-none  "}
                       placeholder={placeholder}
                       required={true}
+
+
                   />
 
 
@@ -36,6 +38,7 @@ export const CustomField = ({  name ,type ,errorMsg, inputLabel,  placeholder ,r
                       className={" rounded-xl border border-blue-950  py-2 px-4 focus:outline-none  "}
                       placeholder={placeholder}
                       required={true}
+                      defaultValue={value}
                   />
 
               </div>

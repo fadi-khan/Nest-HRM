@@ -14,7 +14,7 @@ export const Notification = ({message =" Error occurred! ",notificationTypeError
     }, [show]);
 
         return (
-            <div className={`${!showMsg ? "bg-transparent hidden":"px-4 py-3" } ${notificationTypeError ?"bg-red-700":"bg-green-800"}  m-auto fixed z-50  rounded-lg text-sm  text-center md:left-1/2  bottom-0 my-2 left-1/3 
+            <div className={`${!showMsg ? "bg-transparent hidden":"px-4 py-3" } ${notificationTypeError ?"bg-red-700":"bg-green-800"}  m-auto fixed z-50 text-white font-bold  rounded-lg text-sm  text-center md:left-1/2  bottom-0 my-2 left-1/3 
                 `}>
                 {message}
 

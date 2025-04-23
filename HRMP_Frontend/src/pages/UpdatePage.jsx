@@ -12,9 +12,8 @@ export  const UpdatePage = ()=>{
     const [sideBar, setSideBar] = useState(false);
 
     const location = useLocation();
-    const { id, user } = location.state || {};
-    console.log(id)
-    console.log(user?.name)
+    const { currentUser, user } = location.state || {};
+
     return (
         <div>
             <TopBar user={user} sideBar={sideBar} setSideBar={setSideBar} />
@@ -24,7 +23,7 @@ export  const UpdatePage = ()=>{
                 <div className={'space-4 mx-auto w-full  p-4'}>
                     <Heading text={"Update Employee"} />
 
-                    <CustomForm id={id} me={user}/>
+                    <CustomForm heading={"Edit Employee"} currentUser={currentUser} me={user}/>
 
 
                 </div>
