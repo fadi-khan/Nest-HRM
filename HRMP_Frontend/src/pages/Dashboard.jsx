@@ -6,6 +6,7 @@ import {API, getAllLeaves, getCustomers} from "../services/client.jsx";
 import {Table} from "../components/Table.jsx";
 import LoadingSpinner from "../components/LoadingSpinner.jsx";
 import {InfoCard} from "../components/InfoCard.jsx";
+import {Menu} from "../components/Menu.jsx";
 
 
 export  const Dashboard = ()=>{
@@ -13,6 +14,8 @@ export  const Dashboard = ()=>{
     const [sideBar, setSideBar] = useState(false);
 
     const [leaves, setLeaves] = useState([])
+
+    const [isOpen, setIsOpen] = useState(false)
 
     const [loading, setLoading] = useState(false)
     const [users, setUsers] = useState([{}])
@@ -91,6 +94,7 @@ export  const Dashboard = ()=>{
 
                 <div className={'space-4 space-y-5 mx-auto'}>
                     <Heading text={"Dashboard"} />
+
 
                  <div className={"flex px-4 py-4  w-full items-center justify-between  "}>
                      <InfoCard data={users.length} heading={'Total Employees'}/>

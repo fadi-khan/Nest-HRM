@@ -108,12 +108,15 @@ import {BiArrowBack} from "react-icons/bi";
 import {Notification} from "./Notification.jsx";
 import {useForm} from "react-hook-form";
 import {CustomField} from "./CustomField.jsx";
+import {Menu} from "./Menu.jsx";
 
 
 export const CustomForm = ({id, me}) => {
     const [showNotification, setShowNotification] = useState(false)
     const [error, setError] = useState(false);
     const [confirmationMessage, setConfirmationMessage] = useState("")
+
+    const [formData, setFormData] = useState({})
 
     const { register,
         handleSubmit,
@@ -130,6 +133,10 @@ export const CustomForm = ({id, me}) => {
 
     const onSubmit = async (data) => {
         try {
+            setFormData(prev => ({
+                ...prev,
+                ...data
+            }));
             await updateCustomer(data, id)
             setConfirmationMessage("Customer saved successfully!");
 
@@ -163,7 +170,7 @@ export const CustomForm = ({id, me}) => {
 
                 <div className="px-8 py-6">
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid  grid-cols-1  lg:grid-cols-2 justify-end md:px-8 gap-x-10 ">
                             <CustomField
                                 register={register}
                                 name="name"
@@ -171,6 +178,7 @@ export const CustomForm = ({id, me}) => {
                                 placeholder="full name"
                                 errorMsg={errors.name}
                                 required
+
                             />
                             <CustomField
                                 register={register}
@@ -196,6 +204,8 @@ export const CustomForm = ({id, me}) => {
                                 placeholder="123 Main Street"
                                 errorMsg={errors.address}
                             />
+                            <Menu  placeholderName={'Status'} dropDownList={["Active","Terminated"]} value={'isActive'} />
+
                         </div>
 
                         <div className="mt-8 flex justify-center">
