@@ -115,15 +115,10 @@ export const CustomForm = ({id, me}) => {
     const [showNotification, setShowNotification] = useState(false)
     const [error, setError] = useState(false);
     const [confirmationMessage, setConfirmationMessage] = useState("")
-    const [value, setValue] = useState('')
-    const [formData, setFormData] = useState({})
-    const [customer, setCustomer] = useState({});
+    const [formData, setFormData] = useState({
+        isActive: true,
+    })
 
-    const handleChange = (e) => {
-
-        setCustomer({...customer, [e.target.name]: e.target.value})
-        setConfirmationMessage("")
-    }
 
     const { register,
         handleSubmit,
@@ -144,7 +139,8 @@ export const CustomForm = ({id, me}) => {
                 ...prev,
                 ...data
             }));
-            await updateCustomer(data, id)
+
+            await updateCustomer(formData, id)
             setConfirmationMessage("Customer saved successfully!");
 
             setError(false)
@@ -156,7 +152,8 @@ export const CustomForm = ({id, me}) => {
             setShowNotification(true)
         }
     }
-    console.log(errors)
+
+    console.log(formData)
 
     return (
         <div className=" bg-gradient-to-br from-blue-50 to-blue-100 p-8">
@@ -212,7 +209,10 @@ export const CustomForm = ({id, me}) => {
                                 errorMsg={errors.address}
                             />
                             <Menu
-                                placeholderName={'Status'} dropDownList={["Active","Terminated"]} value={'isActive'} />
+                                dataKey={'isActive'}
+                                setUserUpdate={setFormData}
+                                placeholderName={'Status'} dropDownList={["Active","Terminated"]}
+                                value={'isActive'} isBooleanList={true} />
 
                         </div>
 
