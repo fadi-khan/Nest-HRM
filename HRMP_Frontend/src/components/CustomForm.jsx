@@ -1,12 +1,12 @@
 
 import React, {useState, useEffect} from "react";
-import {saveCustomer, updateCustomer} from "../services/client.jsx";
+import {updateCustomer} from "../services/client.jsx";
 import {BiArrowBack} from "react-icons/bi";
 import {Notification} from "./Notification.jsx";
 import {useForm} from "react-hook-form";
 import {CustomField} from "./CustomField.jsx";
 import {Menu} from "./Menu.jsx";
-import DatePicker from "react-datepicker";
+
 
 
 export const CustomForm = ({currentUser, me ,heading}) => {
@@ -35,15 +35,15 @@ export const CustomForm = ({currentUser, me ,heading}) => {
         try {
 
             const payload = {
-                ...formData,                    // { isActive: true, ...any other backend defaults }
-                ...data,                        // { name, email, dob, etc. }
-                dob: data.dob + "T00:00:00.000Z" // make sure it's a full ISO string
+                ...formData,
+                ...data,
+                dob: data.dob + "T00:00:00.000Z"
             };
 
             console.log(">>> payload:", payload);
 
-            // Persist the merged object directly:
-            const resp = await updateCustomer(payload, currentUser.id);
+
+            await updateCustomer(payload, currentUser.id);
             setConfirmationMessage("Customer saved successfully!");
 
 
@@ -57,7 +57,7 @@ export const CustomForm = ({currentUser, me ,heading}) => {
         }
     }
 
-    const [startDate, setStartDate] = useState(new Date());
+
     return (
         <div className=" bg-gradient-to-br from-blue-50 to-blue-100 p-8 select-none">
             <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-2xl overflow-visible">
