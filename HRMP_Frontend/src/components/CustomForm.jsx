@@ -115,8 +115,15 @@ export const CustomForm = ({id, me}) => {
     const [showNotification, setShowNotification] = useState(false)
     const [error, setError] = useState(false);
     const [confirmationMessage, setConfirmationMessage] = useState("")
-
+    const [value, setValue] = useState('')
     const [formData, setFormData] = useState({})
+    const [customer, setCustomer] = useState({});
+
+    const handleChange = (e) => {
+
+        setCustomer({...customer, [e.target.name]: e.target.value})
+        setConfirmationMessage("")
+    }
 
     const { register,
         handleSubmit,
@@ -204,7 +211,8 @@ export const CustomForm = ({id, me}) => {
                                 placeholder="123 Main Street"
                                 errorMsg={errors.address}
                             />
-                            <Menu  placeholderName={'Status'} dropDownList={["Active","Terminated"]} value={'isActive'} />
+                            <Menu
+                                placeholderName={'Status'} dropDownList={["Active","Terminated"]} value={'isActive'} />
 
                         </div>
 

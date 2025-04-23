@@ -73,6 +73,7 @@ export const Login = () => {
                             inputLabel={'Email Address'}
                             name={'email'}
                             register={register}
+                            isLoginScreen={true}
                         />
                         <CustomField
                             type={'password'}
@@ -80,6 +81,7 @@ export const Login = () => {
                             inputLabel={'Password'}
                             name={'password'}
                             register={register}
+                            isLoginScreen={true}
                         />
 
                         <input
