@@ -115,36 +115,44 @@ export const CustomForm = ({currentUser, me ,heading}) => {
                                 errorMsg={errors.address}
                                 value={currentUser?.address}
                             />
-                            <Menu
-                                dataKey={'isActive'}
-                                setUserUpdate={setFormData}
-                                placeholderName={'Status'} dropDownList={["Active", "Terminated"]}
-                                isBooleanList={true} currentValue={currentUser?.isActive}
+                           <div className={'mb-6'}>
+                               <Menu
+                                   dataKey={'isActive'}
+                                   setUserUpdate={setFormData}
+                                   placeholderName={'Status'} dropDownList={["Active", "Terminated"]}
+                                   isBooleanList={true} currentValue={currentUser?.isActive}
 
-                            />
+                               />
+                           </div>
 
-                            <Menu
-                                dataKey={'gender'}
-                                setUserUpdate={setFormData}
-                                placeholderName={'Gender'} dropDownList={["MALE", "FEMALE", "OTHER"]}
-                                currentValue={currentUser?.gender}
-                            />
+                           <div className={'mb-6'}>
+                               <Menu
+                                   dataKey={'gender'}
+                                   setUserUpdate={setFormData}
+                                   placeholderName={'Gender'} dropDownList={["MALE", "FEMALE", "OTHER"]}
+                                   currentValue={currentUser?.gender}
+                               />
+                           </div>
 
-                            <Menu
-                                dataKey={'department'}
-                                setUserUpdate={setFormData}
-                                placeholderName={'From'}
-                                dropDownList={["'HR", "IT", "RESEARCH", "OPERATIONS", "SUPPORT"]}
-                                currentValue={currentUser?.department}
-                            />
+                            <div className={'mb-6'}>
+                                <Menu
+                                    dataKey={'department'}
+                                    setUserUpdate={setFormData}
+                                    placeholderName={'From'}
+                                    dropDownList={["'HR", "IT", "RESEARCH", "OPERATIONS", "SUPPORT"]}
+                                    currentValue={currentUser?.department}
+                                />
+                            </div>
 
-                            <Menu
-                                dropDownList={["GENERAL", "ADMIN", "MANAGER"]}
-                                setUserUpdate={setFormData}
-                                dataKey={"employeType"}
-                                placeholderName={"Employee Type"}
-                                currentValue={currentUser?. employeType}
-                            />
+                            <div className={'mb-6'}>
+                                <Menu
+                                    dropDownList={["GENERAL", "ADMIN", "MANAGER"]}
+                                    setUserUpdate={setFormData}
+                                    dataKey={"employeType"}
+                                    placeholderName={"Employee Type"}
+                                    currentValue={currentUser?. employeType}
+                                />
+                            </div>
 
                             <CustomField
                                 register={register}
@@ -167,8 +175,6 @@ export const CustomForm = ({currentUser, me ,heading}) => {
 
                         </div>
 
-
-                        <br/><br/><br/>
 
                         <div className="flex justify-end px-8 mt-6">
                             <button

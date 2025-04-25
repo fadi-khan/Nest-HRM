@@ -14,20 +14,11 @@ export  const Dashboard = ()=>{
 
     const [leaves, setLeaves] = useState([])
 
-    const [isOpen, setIsOpen] = useState(false)
-
     const [loading, setLoading] = useState(false)
     const [users, setUsers] = useState([{}])
 
 
-    const allLeaves = async ()=>{
-        await getAllLeaves().then(res=>{
-            setLeaves(res.data)
 
-        }).catch(
-            err => console.log(err)
-        )
-    }
 
     const customerData = () => {
         setLoading(true)
@@ -37,6 +28,8 @@ export  const Dashboard = ()=>{
             .then(res => {
                 if (res.data && res.data.length > 0) {
                     setUsers(res.data);
+
+                    console.log(res.data);
                 }
 
                 else (
@@ -65,22 +58,16 @@ export  const Dashboard = ()=>{
             err => console.log(err)
         )
 
+
         API.get('/auth/status').
         then(res=>{
             setMe(res.data)
-
-            allLeaves()
-            // getting all customers
             customerData()
-
         }).catch( ()=>{
             localStorage.removeItem("token");
 
         })
     },[]);
-
-
-
 
 
 

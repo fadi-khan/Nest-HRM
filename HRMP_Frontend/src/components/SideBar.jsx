@@ -20,7 +20,7 @@ const SideBar = ({ toggleSidebar, setToggleSidebar }) => {
                 ></div>
             )}
             <div
-                className={ ` fixed  md:relative  h-screen  md:left-0 top-0 ease-in-out duration-500 px-2 text-white md:w-[25%] w-[80%] border-r
+                className={ `select-none  fixed  md:relative  h-screen  md:left-0 top-0 ease-in-out duration-500 px-2 text-white md:w-[25%] w-[80%] border-r
                  bg-blue-950 border-green-700 border-opacity-30  z-40
             ${toggleSidebar ? "left-0" : "-left-full"}`}>
 

@@ -18,7 +18,7 @@ const TopBar = ({sideBar,setSideBar, user}) => {
         <div className={"md:hidden "}><Logo/></div>
 
 
-        <div className={"hidden xl:flex"} > <Heading text={"Welcome, "+ user.name}/> </div>
+        <div className={"hidden xl:flex capitalize text-blue-950"} > <Heading text={"Welcome "+ user.name}/> </div>
 
 
 
