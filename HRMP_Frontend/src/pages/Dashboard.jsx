@@ -76,7 +76,7 @@ export  const Dashboard = ()=>{
             <TopBar setSideBar={setSideBar} sideBar={sideBar} user={me} />
 
             <div className={"flex  "}>
-                <SideBar  toggleSidebar={sideBar} setToggleSidebar={setSideBar} />
+                <SideBar  toggleSidebar={sideBar} setToggleSidebar={setSideBar} me={me} />
 
                 <div className={'space-4 space-y-5 mx-auto'}>
                     <Heading text={"Dashboard"} />

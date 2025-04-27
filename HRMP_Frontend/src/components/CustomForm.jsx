@@ -20,7 +20,15 @@ export const CustomForm = ({currentUser, me ,heading}) => {
 
     const { register,
         handleSubmit,
-        formState: { errors } } = useForm()
+        formState: { errors } } = useForm({
+            values:{
+            name : currentUser?.name,
+            contactNo: currentUser?.contactNo,
+            email : currentUser?.email,
+            address : currentUser?.address,
+            dob : currentUser?.dob.slice(0,10)
+
+        }})
 
     useEffect(() => {
         if(showNotification) {
@@ -39,9 +47,6 @@ export const CustomForm = ({currentUser, me ,heading}) => {
                 ...data,
                 dob: data.dob + "T00:00:00.000Z"
             };
-
-            console.log(">>> payload:", payload);
-
 
             await updateCustomer(payload, currentUser.id);
             setConfirmationMessage("Customer saved successfully!");
@@ -85,7 +90,6 @@ export const CustomForm = ({currentUser, me ,heading}) => {
                                 placeholder="full name"
                                 errorMsg={errors.name}
                                 required
-                                value={currentUser?.name}
 
                             />
                             <CustomField
@@ -95,7 +99,7 @@ export const CustomForm = ({currentUser, me ,heading}) => {
                                 placeholder="0300 1234567"
                                 errorMsg={errors.contactNo}
                                 required
-                                value={currentUser?.contactNo}
+
 
                             />
                             <CustomField
@@ -105,7 +109,6 @@ export const CustomForm = ({currentUser, me ,heading}) => {
                                 placeholder="abc@gmail.com"
                                 type="email"
                                 errorMsg={errors.email}
-                                value={currentUser?.email}
                             />
                             <CustomField
                                 register={register}
@@ -113,7 +116,6 @@ export const CustomForm = ({currentUser, me ,heading}) => {
                                 inputLabel="Address"
                                 placeholder="123 Main Street"
                                 errorMsg={errors.address}
-                                value={currentUser?.address}
                             />
                            <div className={'mb-6'}>
                                <Menu
@@ -158,14 +160,10 @@ export const CustomForm = ({currentUser, me ,heading}) => {
                                 register={register}
                                 name="dob"
                                 inputLabel="DOB"
-                                placeholder="Date of Birth"
+                                placeholder={'mm/dd/yyyy'}
                                 errorMsg={errors.dob}
                                 required
-                                type={"date"}
-                                value={currentUser?.dob}
-
-
-
+                                type={"text"}
                             />
 
 

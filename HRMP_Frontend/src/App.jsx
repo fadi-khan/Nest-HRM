@@ -5,6 +5,7 @@ import {Dashboard} from "./pages/Dashboard.jsx";
 import {ProtectedRoute} from "./components/ProtectedRoute.jsx";
 import {UpdatePage} from "./pages/UpdatePage.jsx";
 import {Request} from "./pages/Request.jsx";
+import {Employees} from "./pages/Employees.jsx";
 
 
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/dashboard" element={<ProtectedRoute children={<Dashboard/>}/>} />
             <Route path="/update" element={<UpdatePage/>} />
             <Route path="/requests" element={<Request/>} />
+            <Route path="/employee" element={<Employees/>} />
 
 
 

@@ -4,27 +4,9 @@ import React, {useState} from "react";
 import {Notification} from "./Notification.jsx";
 import {useNavigate} from "react-router-dom";
 
-export const ConfirmationMessage = ({id , updateCustomerList ,showDeleteDialogue,  setShowDeleteDialogue }) => {
+export const ConfirmationMessage = ({id , updateCustomerList=[] ,showDeleteDialogue,  setShowDeleteDialogue , onClicked  }) => {
 
     const [showNotification, setShowNotification] = useState(false)
-
-    const handleDelete =   (id) => {
-        try {
-            deleteCustomer(id).then(() => {
-                updateCustomerList();
-                setShowDeleteDialogue(false);
-
-             })
-
-
-        }
-        catch (error) {
-            throw error.response.data;
-        }
-        finally {
-            setShowNotification(true)
-        }
-    }
 
 
     return (
@@ -45,11 +27,16 @@ export const ConfirmationMessage = ({id , updateCustomerList ,showDeleteDialogue
             <h2 className={"font-bold text-lg"}>Are you sure ?</h2>
             <div className={"flex justify-between p-4 mt-4 "}>
                 <div className={"border w-1/3 py-1 bg-green-800"}
-                                    onClick={() => {
-                                        handleDelete(id)
+                                    onClick={()=>{
+                                        onClicked().then(
+                                            ()=>{
+                                                updateCustomerList()
+                                                setShowNotification(true)
+                                            }
+                                        )
+                                        setShowDeleteDialogue(false);
 
-
-                                    }}>
+                                    }  }>
                                 Yes
                             </div>
                             <div className={"border w-1/3 bg-red-700"}

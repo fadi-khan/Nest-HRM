@@ -9,8 +9,9 @@ export const Menu = ({
                          placeholderName = 'Select',
                          isBooleanList = false,
                          currentValue,
-    style=''
 
+    style='',
+    onClicked = () => {}
 
                      }) => {
 
@@ -38,22 +39,22 @@ export const Menu = ({
 
     }
 
-    return (<>
+    return <>
 
 
-            {isOpen && (<div
+            {isOpen && <div
                 onClick={() => {
 
                     setIsOpen(false)
                 }}
                 className={"fixed inset-0 z-40 bg-black opacity-50"}>
 
-            </div>)}
+            </div>}
 
 
             <div
                 onClick={() => setIsOpen(!isOpen)}
-                className={` relative cursor-pointer w-full  flex items-center   justify-center gap-x-4  `}>
+                className={`select-none  relative cursor-pointer w-full  flex items-center   justify-center gap-x-4  `}>
 
                 <label
                     className={`${style} text-md w-full lg:text-right text-left text-blue-950 font-bold  pl-4 capitalize`}> {placeholderName}  </label>
@@ -65,11 +66,12 @@ export const Menu = ({
                 </div>
 
                 {isOpen && <div className={'absolute min-w-[215px]  right-0 top-full  z-50 '}>
-                    {dropDownList.map((item, i) => (<div
+                    {dropDownList.map((item, i) => <div
                         onClick={() => {
                             setValue(item)
                             currentValue = null
 
+                            onClicked(item);
                             if (isBooleanList) {
                                 modifyList(i)
                             } else {
@@ -87,7 +89,7 @@ export const Menu = ({
                         }
 
 
-                    </div>))}
+                    </div>)}
 
                 </div>}
 
@@ -96,6 +98,4 @@ export const Menu = ({
 
 
         </>
-
-    )
 }

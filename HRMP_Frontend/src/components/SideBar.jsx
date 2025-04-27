@@ -2,7 +2,7 @@ import {AiOutlineClose} from "react-icons/ai";
 import {useNavigate} from "react-router-dom";
 
 
-const SideBar = ({ toggleSidebar, setToggleSidebar }) => {
+const SideBar = ({me={}, toggleSidebar, setToggleSidebar }) => {
 
     const navigate = useNavigate();
     const onItemClick = (item) => {
@@ -41,7 +41,7 @@ const SideBar = ({ toggleSidebar, setToggleSidebar }) => {
 
                             <li onClick={()=>onItemClick('/dashboard')} className={`p-3 shadow-lg w-full justify-center hover:bg-blue-900 hover:rounded `}>Dashboard</li>
                             <li onClick={()=>onItemClick('/employee')} className={`p-3 shadow-lg w-full justify-center hover:bg-blue-900 hover:rounded `}>Employees </li>
-                            <li onClick={()=>onItemClick('/requests')} className={`p-3 shadow-lg w-full justify-center hover:bg-blue-900 hover:rounded `}>Leave Requests </li>
+                            <li onClick={()=>{ navigate("/requests" ,{state:me} ) }} className={`p-3 shadow-lg w-full justify-center hover:bg-blue-900 hover:rounded `}>Leave Requests </li>
                             <li onClick={()=>onItemClick('/')} className={`p-3 shadow-lg w-full justify-center hover:bg-blue-900 hover:rounded `}>Logout</li>
                         </div>
 

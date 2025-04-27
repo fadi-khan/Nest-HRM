@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LoadingSpinner from "./LoadingSpinner.jsx";
 import { useNavigate } from "react-router-dom";
 import { ConfirmationMessage } from "./ConfirmationMessage.jsx";
+import {deleteCustomer} from "../services/client.jsx";
 
 export function Table({me, updateCustomers,  users, setUsers }) {
     const [loading, setLoading] = useState(false);
@@ -69,6 +70,13 @@ export function Table({me, updateCustomers,  users, setUsers }) {
                 updateCustomerList={updateCustomers}
                 showDeleteDialogue={showDialogue}
                 setShowDeleteDialogue={setShowDialogue}
+                onClicked={ async () => {
+                    try {
+                        await deleteCustomer(currentUser?.id);
+                    } catch (error) {
+                        console.error("Error deleting customer:", error?.response?.data || error.message);
+                    }}
+            }
             />
 
         </div>

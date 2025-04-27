@@ -1,18 +1,19 @@
+import React from "react";
 
 
-
-export const CustomField = ({value , name ,type ,errorMsg, inputLabel,  placeholder ,register ,style="", isLoginScreen=false })=> {
+export const CustomField = ({ name ,type ,errorMsg, inputLabel,  placeholder ,register ,style="", isLoginScreen=false })=> {
   if (isLoginScreen){
       return (
           <div className={` flex  flex-col  gap-y-1 w-full `}>
 
                   <div className={' text-md w-full   text-blue-950 font-bold  '}>{inputLabel} </div>
                   <input
-                      {...register(name)}
+                      {...register(name )}
                       type={type}
                       className={" rounded-xl border min-w-[215px] w-full border-blue-950  py-2 px-4 focus:outline-none  "}
                       placeholder={placeholder}
                       required={true}
+
 
 
                   />
@@ -33,12 +34,14 @@ export const CustomField = ({value , name ,type ,errorMsg, inputLabel,  placehol
                   <div className={' text-md w-full  lg:text-right text-left text-blue-950 font-bold  pl-4'}>{inputLabel} </div>
 
                   <input
+
+
                       {...register(name)}
                       type={type}
                       className={" rounded-xl border border-blue-950  py-2 px-4 focus:outline-none  "}
                       placeholder={placeholder}
                       required={true}
-                      defaultValue={value}
+
                   />
 
               </div>

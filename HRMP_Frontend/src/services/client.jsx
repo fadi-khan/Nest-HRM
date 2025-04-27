@@ -61,6 +61,15 @@ export const updateCustomer =async (customer,id)=>{
         throw error.response.data;
     }
 }
+export const updateLeaveStatus = async ({ id, status }) => {
+    try {
+        // only send the new status, not the entire leave object
+        return await axios.patch(`${leavesApiUrl}/${id}`, { status });
+    } catch (error) {
+        console.error("API error:", error.response?.data || error.message);
+        throw error;
+    }
+};
 
 export const deleteCustomer =async (id)=>{
         const response = await axios.delete(apiUrl+`/${id}`)
